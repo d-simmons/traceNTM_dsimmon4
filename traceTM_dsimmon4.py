@@ -88,15 +88,25 @@ class NTM:
         return False
 
     def print_path(self, tree, config):
-        print("Path to accept:")
-        for level in tree:
+        depth = len(tree)  # Depth of the accepting path
+        total_configurations = sum(len(level) for level in tree)  # Total configurations explored
+        average_nondeterminism = total_configurations / depth if depth > 0 else 0  # Average nondeterminism
+
+        print("\nPath to accept:")
+        for level_index, level in enumerate(tree):
             if config in level:
-                print(config)
+                print(f"Depth {level_index}: {config}")
+                break  # Stop tracing once the accepting state is found
+
+        print("\nSummary:")
+        print(f"Depth of Accepting Path: {depth}")
+        print(f"Total Configurations Explored: {total_configurations}")
+        print(f"Average Nondeterminism: {average_nondeterminism:.2f}")
 
 
 # trace variables (change these to change what file, input, depth, etc.)
 file_name = "aplus.csv"
-input_string = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+input_string = "aaaaa"
 max_depth = 100
 max_transitions = 1000
 
