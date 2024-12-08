@@ -95,7 +95,7 @@ class NTM:
 
 
 # trace variables (change these to change what file, input, depth, etc.)
-file_name = "aplus_input.csv"
+file_name = "aplus.csv"
 input_string = "aaaaaaaaaaaaaaaa"
 max_depth = 100
 max_transitions = 1000
